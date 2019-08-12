@@ -4,7 +4,8 @@ case os:getenv("CUTTLEFISH_ESCRIPT") =:= "true" of
         %% building escript, delete the post hook
         lists:keydelete(post_hooks, 1, CONFIG);
     false ->
-        PostHooks = {post_hooks, [ {"(linux|darwin|solaris|win32)", app_compile, "make escript"}
-                                 , {"(freebsd|netbsd|openbsd)", app_compile, "gmake escript"}]},
-        [PostHooks | CONFIG]
+        % PostHooks = {post_hooks, [ {"(linux|darwin|solaris|win32)", app_compile, "make escript"}
+        %                          , {"(freebsd|netbsd|openbsd)", app_compile, "gmake escript"}]},
+        % [PostHooks | CONFIG]
+        CONFIG
 end.
